@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -22,6 +23,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
+        // on appel la vue index qui se trouve dans le dossier urser (qui se trouve dans admin)
         return view('admin.users.index')->with('users', $users);
     }
 
@@ -65,7 +67,11 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $roles = Role::all();
+        return view('admin.users.edit', [
+            'user' => $user,
+            'roles' => $roles
+        ]);
     }
 
     /**
@@ -77,7 +83,8 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->roles()->sync($request->roles);
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -88,6 +95,9 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->roles()->detach();
+        $user->delete();
+
+        return redirect()->route('admin.users.index');
     }
 }
