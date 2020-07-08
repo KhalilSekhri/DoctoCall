@@ -25,9 +25,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     Route::resource('users', 'UsersController');
 });
 
-
 Route::get('/specialitie/delete/{id}','SpecialitiesController@destroy')->name('delete_specialitie');
 Route::resource('specialitie', 'SpecialitiesController');
+
+Route::get('/doctors/searchDoctor', 'DoctorsController@index');
 
 /*
 Route::namespace('Specialitie')->prefix('specialitie')->name('specialitie.')->group(function(){

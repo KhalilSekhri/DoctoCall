@@ -68,6 +68,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="secu" class="col-md-4 col-form-label text-md-right">{{ __('Numéro de Securité Social') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="secu" type="text" class="form-control @error('secu') is-invalid @enderror" name="secu" value="{{ old('secu') }}" required autocomplete="secu">
+
+                                @error('secu')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
 
                             <div class="col-md-6">

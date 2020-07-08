@@ -41,6 +41,11 @@ class SpecialitiesController extends Controller
         return view('specialitie/create');
     }
 
+    public function addDoctor()
+    {
+        return view('specialitie/addDoctor');
+    }
+
     /**
      * pour créer une nouvelle spécialité.
      *
