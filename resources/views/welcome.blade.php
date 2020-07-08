@@ -62,6 +62,19 @@
                 margin-bottom: 30px;
             }
         </style>
+
+        <script type="text/javascript">
+        function AfficherMasquer()
+        {
+            divInfo = document.getElementById('divacacher');
+            
+            if (divInfo.style.display == 'none')
+                divInfo.style.display = 'block';
+            else
+                divInfo.style.display = 'none';
+        
+        }
+        </script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -84,8 +97,8 @@
                     DoctoCall
                 </div>
 
-                <a href="{{ route('register') }}"><button class="btn btn-primary">Medecin</button></a>
-                <a href="{{ route('register') }}"><button class="btn btn-primary">Patient</button></a>
+                <a href="{{ route('login') }}"><button class="btn btn-primary">J'ai un compte</button></a>
+                <a href="{{ route('register') }}"><button class="btn btn-primary">Je n'ai pas de compte</button></a>
 
                 <div class="links">
                 </div>
