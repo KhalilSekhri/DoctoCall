@@ -41,4 +41,29 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
 
     }
+
+    public function isAdmin() {
+        // return true si c'est un admin
+        if($this->roles()->where('name', 'admin')->first()){
+            return true;
+        }
+        return false;
+    }
+
+    public function hasAnyRoles($roles) {
+        // return true si c'est un admin
+        if($this->roles()->whereIn('name', $roles)->first()){
+            return true;
+        }
+        return false;
+    }
+
+    public function hasRole($role) {
+        // return true si c'est un admin
+        if($this->roles()->where('name', $role)->first()){
+            return true;
+        }
+        return false;
+    }
+
 }
