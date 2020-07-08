@@ -31,14 +31,14 @@ class AuthServiceProvider extends ServiceProvider
         });
         
         //vrifie si l'user est admin pour l'edition d'utilisateur
-        /*Gate::define('edit-settings', function ($user) {
+        Gate::define('edit-settings', function ($user) {
             return $user->isAdmin();
         });
 
         // verifie si l'user est admin pour la suppression d'utilisateur
         Gate::define('delete-settings', function ($user) {
             return $user->isAdmin();
-        });*/
+        });
 
     }
 }
