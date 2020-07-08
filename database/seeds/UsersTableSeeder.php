@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
             'firstname' => 'ADMIN',
             'email' => 'admin@admin.com',
             'phone' => '0000000000',
-            'password' => Hash::make('password')
+            'password' => Hash::make('admin')
         ]);
 
         $docteur = User::create([
@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
             'firstname' => 'DOCTEUR',
             'email' => 'docteur@docteur.com',
             'Phone' => '1111111111',
-            'password' => Hash::make('password')
+            'password' => Hash::make('docteur')
         ]);
 
         $patient = User::create([
@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder
             'firstname' => 'PATIENT',
             'email' => 'patient@patient.com',
             'Phone' => '2222222222',
-            'password' => Hash::make('password')
+            'password' => Hash::make('patient')
         ]);
 
         $adminRole = Role::where('name', 'admin')->first();
